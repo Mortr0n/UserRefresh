@@ -7,19 +7,23 @@ class User {
 
     makeDeposit(amount) {
         this.accountBalance += amount;
+        return this;
     }
 
     makeWithdrawal(amount) {
         this.accountBalance -= amount;
+        return this;
     }
 
     displayBalance() {
         console.log(this.userName + " has "  +"$"+ this.accountBalance + " in their account.");
+        return this;
     }
 
     transferMoney(user, amount) {
         this.accountBalance -= amount;
         user.accountBalance += amount;
+        return this;
     }
 
 }
@@ -27,11 +31,7 @@ class User {
 const chris = new User("Chris", "chris@mortr0n.com");
 const misty = new User("Misty", "misty@mortr0n.com");
 const jiraiya = new User("Jiraiya", "jiraiya@mortr0n.com");
-chris.makeDeposit(400);
-chris.makeDeposit(143);
-chris.makeDeposit(500);
-chris.makeWithdrawal(23);
-chris.displayBalance();
+chris.makeDeposit(400).makeDeposit(143).makeDeposit(500).makeWithdrawal(23).displayBalance();
 misty.makeDeposit(900);
 misty.makeDeposit(1900);
 misty.makeWithdrawal(32);
